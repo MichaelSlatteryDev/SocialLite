@@ -37,6 +37,9 @@
 		76DDB8CC285637DB0055F1A7 /* TimelineInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8CB285637DB0055F1A7 /* TimelineInteractor.swift */; };
 		76DDB8CE285637E20055F1A7 /* TimelineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8CD285637E20055F1A7 /* TimelineService.swift */; };
 		76DDB8D0285637EB0055F1A7 /* TimelineWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8CF285637EB0055F1A7 /* TimelineWireframe.swift */; };
+		76DDB8D228564C2B0055F1A7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8D128564C2B0055F1A7 /* Post.swift */; };
+		76DDB8D42856519E0055F1A7 /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8D32856519E0055F1A7 /* TimelineCell.swift */; };
+		76DDB8D6285654480055F1A7 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8D5285654480055F1A7 /* Double+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,9 @@
 		76DDB8CB285637DB0055F1A7 /* TimelineInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineInteractor.swift; sourceTree = "<group>"; };
 		76DDB8CD285637E20055F1A7 /* TimelineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineService.swift; sourceTree = "<group>"; };
 		76DDB8CF285637EB0055F1A7 /* TimelineWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWireframe.swift; sourceTree = "<group>"; };
+		76DDB8D128564C2B0055F1A7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		76DDB8D32856519E0055F1A7 /* TimelineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCell.swift; sourceTree = "<group>"; };
+		76DDB8D5285654480055F1A7 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +157,7 @@
 				76DDB86C285605380055F1A7 /* Info.plist */,
 				76DDB8A928560D830055F1A7 /* Localizable.strings */,
 				76DDB8BA28561C670055F1A7 /* Coordinator.swift */,
+				76DDB8D128564C2B0055F1A7 /* Post.swift */,
 			);
 			path = SocialLite;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 			children = (
 				76DDB8AB28560EA80055F1A7 /* String+Extension.swift */,
 				76DDB8C128562C4A0055F1A7 /* UITextField+Extension.swift */,
+				76DDB8D5285654480055F1A7 /* Double+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 				76DDB8CB285637DB0055F1A7 /* TimelineInteractor.swift */,
 				76DDB8CD285637E20055F1A7 /* TimelineService.swift */,
 				76DDB8CF285637EB0055F1A7 /* TimelineWireframe.swift */,
+				76DDB8D32856519E0055F1A7 /* TimelineCell.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -374,10 +383,13 @@
 				76DDB8C228562C4A0055F1A7 /* UITextField+Extension.swift in Sources */,
 				76DDB85F285605360055F1A7 /* AppDelegate.swift in Sources */,
 				76DDB8B52856165F0055F1A7 /* SignUpInteractor.swift in Sources */,
+				76DDB8D42856519E0055F1A7 /* TimelineCell.swift in Sources */,
+				76DDB8D6285654480055F1A7 /* Double+Extension.swift in Sources */,
 				76DDB8CC285637DB0055F1A7 /* TimelineInteractor.swift in Sources */,
 				76DDB8A02856099F0055F1A7 /* SignInViewController.swift in Sources */,
 				76DDB8B7285616690055F1A7 /* SignUpService.swift in Sources */,
 				76DDB8C8285637C20055F1A7 /* TimelineViewController.swift in Sources */,
+				76DDB8D228564C2B0055F1A7 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
