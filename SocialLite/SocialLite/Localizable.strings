@@ -11,3 +11,18 @@
 "signIn.password.placeholder" = "Password";
 "signIn.signIn.button" = "Sign In";
 "signIn.signUp.button" = "Don't have an account? Sign Up";
+
+"signUp.title" = "Create Account";
+"signUp.displayName.placeholder" = "Display Name";
+"signUp.email.placeholder" = "Email";
+"signUp.password.placeholder" = "Password";
+"signUp.createAccount.button" = "Create Account";
+
+"signUp.success.title" = "Account created!";
+"signUp.success.subtitle" = "Welcome to SocialLite. Please log in with your account.";
+
+"signUp.fail.title" = "Something went wrong";
+"signUp.fail.subtitle" = "Please try again";
+
+"signUp.invalidEmail.text" = "Please enter a valid email";
+"signUp.invalidPassword.text" = "Please enter a password with at least one uppercase, lowercase, number and special character";

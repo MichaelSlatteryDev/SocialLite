@@ -6,95 +6,128 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 protocol SignUp: AnyObject {
-    func signUp()
+    func showSignUp()
+    func showSignUpSuccessBanner()
 }
 
 protocol SignUpViewProtocol {
     func setPresenter(_ presenter: SignUpPresenterProtocol)
+    func signUpSuccess()
+    func signUpFail()
 }
 
-final class SignUpViewController: UIViewController, SignUpViewProtocol, SignUp {
+final class SignUpViewController: UIViewController, SignUpViewProtocol {
     
     var presenter: SignUpPresenterProtocol?
     
     weak var coordinator: Coordinators?
     
-    private let scrollView = UIScrollView()
+    private let stackView = UIStackView()
+//    private let contentView = UIView()
     private let createAccountLabel = UILabel()
     private let nameTextField = UITextField()
     private let emailTextField = UITextField()
+    private let emailErrorLabel = UILabel()
     private let passwordTextField = UITextField()
+    private let passwordErrorLabel = UILabel()
     private let createAccountButton = UIButton()
     
     override func viewDidLoad() {
         
         self.view.backgroundColor = .white
         
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(scrollView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(stackView)
         
-        createAccountLabel.text = "Create Account"
+        createAccountLabel.text = "signUp.title".localize()
         createAccountLabel.font = UIFont.systemFont(ofSize: 20)
         createAccountLabel.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(createAccountLabel)
+        stackView.addSubview(createAccountLabel)
         
-        nameTextField.placeholder = "Display Name"
+        nameTextField.placeholder = "signUp.displayName.placeholder".localize()
         nameTextField.textContentType = .name
+        nameTextField.autocorrectionType = .no
+        nameTextField.autocapitalizationType = .none
+        nameTextField.spellCheckingType = .no
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(nameTextField)
+        stackView.addSubview(nameTextField)
         
-        emailTextField.placeholder = "Email"
+        emailTextField.placeholder = "signUp.email.placeholder".localize()
         emailTextField.textContentType = .emailAddress
         emailTextField.autocorrectionType = .no
         emailTextField.autocapitalizationType = .none
         emailTextField.spellCheckingType = .no
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(emailTextField)
+        stackView.addSubview(emailTextField)
         
-        passwordTextField.placeholder = "Password"
+        emailErrorLabel.font = UIFont.systemFont(ofSize: 12)
+        emailErrorLabel.textColor = .red
+        emailErrorLabel.numberOfLines = 0
+        emailErrorLabel.isHidden = true
+        emailErrorLabel.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addSubview(emailErrorLabel)
+        
+        passwordTextField.placeholder = "signUp.password.placeholder".localize()
         passwordTextField.textContentType = .password
         emailTextField.autocorrectionType = .no
         emailTextField.autocapitalizationType = .none
         emailTextField.spellCheckingType = .no
         passwordTextField.isSecureTextEntry = true
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(passwordTextField)
+        stackView.addSubview(passwordTextField)
         
-        createAccountButton.setTitle("Create Account", for: .normal)
+        passwordErrorLabel.font = UIFont.systemFont(ofSize: 12)
+        passwordErrorLabel.textColor = .red
+        passwordErrorLabel.numberOfLines = 0
+        passwordErrorLabel.lineBreakMode = .byTruncatingTail
+        passwordErrorLabel.isHidden = true
+        passwordErrorLabel.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addSubview(passwordErrorLabel)
+        
+        createAccountButton.setTitle("signUp.createAccount.button".localize(), for: .normal)
         createAccountButton.setTitleColor(.white, for: .normal)
         createAccountButton.backgroundColor = .systemBlue
         createAccountButton.layer.cornerRadius = 4.0
         createAccountButton.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
         createAccountButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(createAccountButton)
+        stackView.addSubview(createAccountButton)
         
         NSLayoutConstraint.activate([
-            self.view.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            self.view.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            self.view.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            self.view.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 64.0),
+            stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             
-            createAccountLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 16.0),
-            createAccountLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16.0),
-            createAccountLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16.0),
+            createAccountLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 16.0),
+            createAccountLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16.0),
+            createAccountLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 16.0),
             
             nameTextField.topAnchor.constraint(equalTo: createAccountLabel.bottomAnchor, constant: 16.0),
-            nameTextField.leadingAnchor.constraint(equalTo: createAccountLabel.leadingAnchor, constant: 8.0),
+            nameTextField.leadingAnchor.constraint(equalTo: createAccountLabel.leadingAnchor),
             nameTextField.trailingAnchor.constraint(equalTo: createAccountLabel.trailingAnchor),
             
             emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 16.0),
-            emailTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor),
-            emailTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor),
+            emailTextField.leadingAnchor.constraint(equalTo: createAccountLabel.leadingAnchor),
+            emailTextField.trailingAnchor.constraint(equalTo: createAccountLabel.trailingAnchor),
             
-            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 16.0),
-            passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
-            passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
+            emailErrorLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor),
+            emailErrorLabel.leadingAnchor.constraint(equalTo: createAccountLabel.leadingAnchor),
+            emailErrorLabel.trailingAnchor.constraint(equalTo: createAccountLabel.trailingAnchor),
             
-            createAccountButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16.0),
-            createAccountButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            passwordTextField.topAnchor.constraint(equalTo: emailErrorLabel.bottomAnchor, constant: 16.0),
+            passwordTextField.leadingAnchor.constraint(equalTo: createAccountLabel.leadingAnchor),
+            passwordTextField.trailingAnchor.constraint(equalTo: createAccountLabel.trailingAnchor),
+            
+            passwordErrorLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor),
+            passwordErrorLabel.leadingAnchor.constraint(equalTo: createAccountLabel.leadingAnchor),
+            passwordErrorLabel.trailingAnchor.constraint(equalTo: createAccountLabel.trailingAnchor),
+            
+            createAccountButton.topAnchor.constraint(equalTo: passwordErrorLabel.bottomAnchor, constant: 16.0),
+            createAccountButton.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
         ])
     }
     
@@ -105,6 +138,39 @@ final class SignUpViewController: UIViewController, SignUpViewProtocol, SignUp {
     @objc func signUp() {
         guard let email = emailTextField.text, let password = passwordTextField.text, let displayName = nameTextField.text else { return }
         
+        guard email.isValidEmail(), password.isValidPassword() else {
+            if !email.isValidEmail() {
+                emailErrorLabel.text = "signUp.invalidEmail.text".localize()
+                emailErrorLabel.isHidden = false
+            } else {
+                emailErrorLabel.text = ""
+                emailErrorLabel.isHidden = true
+            }
+            
+            if !password.isValidPassword() {
+                passwordErrorLabel.text = "signUp.invalidPassword.text".localize()
+                passwordErrorLabel.isHidden = false
+            } else {
+                passwordErrorLabel.text = ""
+                passwordErrorLabel.isHidden = true
+            }
+            
+            return
+        }
+        
         presenter?.signUp(email: email, password: password, displayName: displayName)
+    }
+    
+    func setErrorText() {
+        
+    }
+    
+    func signUpSuccess() {
+        coordinator?.showSignUpSuccessBanner()
+    }
+    
+    func signUpFail() {
+        let banner = NotificationBanner(title: "signUp.fail.title".localize(), subtitle: "signUp.fail.subtitle".localize(), style: .success)
+        banner.show()
     }
 }

@@ -30,6 +30,8 @@
 		76DDB8B7285616690055F1A7 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8B6285616690055F1A7 /* SignUpService.swift */; };
 		76DDB8B9285616740055F1A7 /* SignUpWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8B8285616740055F1A7 /* SignUpWireframe.swift */; };
 		76DDB8BB28561C670055F1A7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8BA28561C670055F1A7 /* Coordinator.swift */; };
+		76DDB8BE285625240055F1A7 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 76DDB8BD285625240055F1A7 /* NotificationBannerSwift */; };
+		76DDB8C228562C4A0055F1A7 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8C128562C4A0055F1A7 /* UITextField+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,7 @@
 		76DDB8B6285616690055F1A7 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		76DDB8B8285616740055F1A7 /* SignUpWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWireframe.swift; sourceTree = "<group>"; };
 		76DDB8BA28561C670055F1A7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		76DDB8C128562C4A0055F1A7 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 				76DDB896285606B80055F1A7 /* FirebaseDatabaseSwift in Frameworks */,
 				76DDB894285606B80055F1A7 /* FirebaseDatabase in Frameworks */,
 				76DDB890285606B80055F1A7 /* FirebaseAnalytics in Frameworks */,
+				76DDB8BE285625240055F1A7 /* NotificationBannerSwift in Frameworks */,
 				76DDB892285606B80055F1A7 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				76DDB8AB28560EA80055F1A7 /* String+Extension.swift */,
+				76DDB8C128562C4A0055F1A7 /* UITextField+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				76DDB891285606B80055F1A7 /* FirebaseAuth */,
 				76DDB893285606B80055F1A7 /* FirebaseDatabase */,
 				76DDB895285606B80055F1A7 /* FirebaseDatabaseSwift */,
+				76DDB8BD285625240055F1A7 /* NotificationBannerSwift */,
 			);
 			productName = SocialLite;
 			productReference = 76DDB85B285605360055F1A7 /* SocialLite.app */;
@@ -285,6 +291,7 @@
 			mainGroup = 76DDB852285605360055F1A7;
 			packageReferences = (
 				76DDB88E285606B80055F1A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				76DDB8BC285625240055F1A7 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
 			);
 			productRefGroup = 76DDB85C285605360055F1A7 /* Products */;
 			projectDirPath = "";
@@ -338,6 +345,7 @@
 				76DDB8A8285609CF0055F1A7 /* SignInWireframe.swift in Sources */,
 				76DDB8A4285609BA0055F1A7 /* SignInInteractor.swift in Sources */,
 				76DDB8A6285609C50055F1A7 /* SignInService.swift in Sources */,
+				76DDB8C228562C4A0055F1A7 /* UITextField+Extension.swift in Sources */,
 				76DDB85F285605360055F1A7 /* AppDelegate.swift in Sources */,
 				76DDB8B52856165F0055F1A7 /* SignUpInteractor.swift in Sources */,
 				76DDB8A02856099F0055F1A7 /* SignInViewController.swift in Sources */,
@@ -674,6 +682,14 @@
 				kind = branch;
 			};
 		};
+		76DDB8BC285625240055F1A7 /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Daltron/NotificationBanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -696,6 +712,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 76DDB88E285606B80055F1A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
+		};
+		76DDB8BD285625240055F1A7 /* NotificationBannerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76DDB8BC285625240055F1A7 /* XCRemoteSwiftPackageReference "NotificationBanner" */;
+			productName = NotificationBannerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

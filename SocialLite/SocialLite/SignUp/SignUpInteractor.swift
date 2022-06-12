@@ -28,14 +28,12 @@ final class SignUpInteractor: SignUpInteractorProtocol {
     
     func signUp(email: String, password: String, displayName: String) {
         service?.signUp(email: email, password: password, displayName: displayName) { [weak self] result in
-            guard let strongSelf = self else { return
-                
-            }
+            guard let strongSelf = self else { return }
             switch result {
-            case let .success(userAccount):
-                print(userAccount)
-            case let .failure(error):
-                print(error)
+            case .success:
+                strongSelf.presenter?.signUpSuccess()
+            case .failure:
+                strongSelf.presenter?.signUpFail()
             }
         }
     }

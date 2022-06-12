@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 typealias Coordinators = (SignUp)
 
@@ -31,10 +32,16 @@ final class MainCoordinator: Coordinator, SignUp {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func signUp() {
+    func showSignUp() {
         let vc = SignUpViewController()
         vc.coordinator = self
         SignUpWireframe.prepareSignUpView(vc, service: SignUpService())
         navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func showSignUpSuccessBanner() {
+        navigationController.popViewController(animated: false)
+        let banner = NotificationBanner(title: "signUp.success.title".localize(), subtitle: "signUp.success.subtitle".localize(), style: .success)
+        banner.show()
     }
 }

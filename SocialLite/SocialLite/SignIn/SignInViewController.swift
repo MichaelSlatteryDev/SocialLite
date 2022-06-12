@@ -110,6 +110,6 @@ final class SignInViewController: UIViewController, SignInViewProtocol {
     }
     
     @objc func createAccount() {
-        coordinator?.signUp()
+        coordinator?.showSignUp()
     }
 }
