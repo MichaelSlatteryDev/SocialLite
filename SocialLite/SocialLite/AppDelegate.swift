@@ -18,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = ViewController()
+        let vc = SignInViewController()
+        SignInWireframe.prepareSignInView(vc, service: SignInService())
+        self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
         
         return true

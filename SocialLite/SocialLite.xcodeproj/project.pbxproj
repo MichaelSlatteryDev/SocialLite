@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		76DDB85F285605360055F1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB85E285605360055F1A7 /* AppDelegate.swift */; };
-		76DDB863285605360055F1A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB862285605360055F1A7 /* ViewController.swift */; };
 		76DDB868285605380055F1A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76DDB867285605380055F1A7 /* Assets.xcassets */; };
 		76DDB876285605380055F1A7 /* SocialLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB875285605380055F1A7 /* SocialLiteTests.swift */; };
 		76DDB880285605390055F1A7 /* SocialLiteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB87F285605390055F1A7 /* SocialLiteUITests.swift */; };
@@ -18,6 +17,13 @@
 		76DDB894285606B80055F1A7 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 76DDB893285606B80055F1A7 /* FirebaseDatabase */; };
 		76DDB896285606B80055F1A7 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 76DDB895285606B80055F1A7 /* FirebaseDatabaseSwift */; };
 		76DDB89A285607E40055F1A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76DDB899285607E40055F1A7 /* GoogleService-Info.plist */; };
+		76DDB8A02856099F0055F1A7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB89F2856099F0055F1A7 /* SignInViewController.swift */; };
+		76DDB8A2285609B00055F1A7 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8A1285609B00055F1A7 /* SignInPresenter.swift */; };
+		76DDB8A4285609BA0055F1A7 /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8A3285609BA0055F1A7 /* SignInInteractor.swift */; };
+		76DDB8A6285609C50055F1A7 /* SignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8A5285609C50055F1A7 /* SignInService.swift */; };
+		76DDB8A8285609CF0055F1A7 /* SignInWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8A7285609CF0055F1A7 /* SignInWireframe.swift */; };
+		76DDB8AA28560D830055F1A7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76DDB8A928560D830055F1A7 /* Localizable.strings */; };
+		76DDB8AC28560EA80055F1A7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8AB28560EA80055F1A7 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +46,6 @@
 /* Begin PBXFileReference section */
 		76DDB85B285605360055F1A7 /* SocialLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DDB85E285605360055F1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		76DDB862285605360055F1A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		76DDB867285605380055F1A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76DDB86C285605380055F1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76DDB871285605380055F1A7 /* SocialLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +54,13 @@
 		76DDB87F285605390055F1A7 /* SocialLiteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLiteUITests.swift; sourceTree = "<group>"; };
 		76DDB881285605390055F1A7 /* SocialLiteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLiteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		76DDB899285607E40055F1A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		76DDB89F2856099F0055F1A7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		76DDB8A1285609B00055F1A7 /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
+		76DDB8A3285609BA0055F1A7 /* SignInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
+		76DDB8A5285609C50055F1A7 /* SignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInService.swift; sourceTree = "<group>"; };
+		76DDB8A7285609CF0055F1A7 /* SignInWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWireframe.swift; sourceTree = "<group>"; };
+		76DDB8A928560D830055F1A7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		76DDB8AB28560EA80055F1A7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +115,13 @@
 		76DDB85D285605360055F1A7 /* SocialLite */ = {
 			isa = PBXGroup;
 			children = (
+				76DDB8AD28560EAC0055F1A7 /* Extensions */,
+				76DDB89E2856097F0055F1A7 /* SignIn */,
 				76DDB899285607E40055F1A7 /* GoogleService-Info.plist */,
 				76DDB85E285605360055F1A7 /* AppDelegate.swift */,
-				76DDB862285605360055F1A7 /* ViewController.swift */,
 				76DDB867285605380055F1A7 /* Assets.xcassets */,
 				76DDB86C285605380055F1A7 /* Info.plist */,
+				76DDB8A928560D830055F1A7 /* Localizable.strings */,
 			);
 			path = SocialLite;
 			sourceTree = "<group>";
@@ -127,6 +141,26 @@
 				76DDB881285605390055F1A7 /* SocialLiteUITestsLaunchTests.swift */,
 			);
 			path = SocialLiteUITests;
+			sourceTree = "<group>";
+		};
+		76DDB89E2856097F0055F1A7 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				76DDB89F2856099F0055F1A7 /* SignInViewController.swift */,
+				76DDB8A1285609B00055F1A7 /* SignInPresenter.swift */,
+				76DDB8A3285609BA0055F1A7 /* SignInInteractor.swift */,
+				76DDB8A5285609C50055F1A7 /* SignInService.swift */,
+				76DDB8A7285609CF0055F1A7 /* SignInWireframe.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		76DDB8AD28560EAC0055F1A7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				76DDB8AB28560EA80055F1A7 /* String+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76DDB868285605380055F1A7 /* Assets.xcassets in Resources */,
+				76DDB8AA28560D830055F1A7 /* Localizable.strings in Resources */,
 				76DDB89A285607E40055F1A7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,8 +303,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76DDB863285605360055F1A7 /* ViewController.swift in Sources */,
+				76DDB8A2285609B00055F1A7 /* SignInPresenter.swift in Sources */,
+				76DDB8AC28560EA80055F1A7 /* String+Extension.swift in Sources */,
+				76DDB8A8285609CF0055F1A7 /* SignInWireframe.swift in Sources */,
+				76DDB8A4285609BA0055F1A7 /* SignInInteractor.swift in Sources */,
+				76DDB8A6285609C50055F1A7 /* SignInService.swift in Sources */,
 				76DDB85F285605360055F1A7 /* AppDelegate.swift in Sources */,
+				76DDB8A02856099F0055F1A7 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +472,6 @@
 				INFOPLIST_FILE = SocialLite/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -461,7 +500,6 @@
 				INFOPLIST_FILE = SocialLite/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
