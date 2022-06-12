@@ -15,6 +15,8 @@ final class SignInViewController: UIViewController, SignInViewProtocol {
     
     var presenter: SignInPresenterProtocol?
     
+    weak var coordinator: Coordinators?
+    
     private let titleLabel = UILabel()
     private let containerView = UIView()
     private let emailTextField = UITextField()
@@ -69,6 +71,7 @@ final class SignInViewController: UIViewController, SignInViewProtocol {
         
         signUpButton.setTitle("signIn.signUp.button".localize(), for: .normal)
         signUpButton.setTitleColor(.systemBlue, for: .normal)
+        signUpButton.addTarget(self, action: #selector(createAccount), for: .touchUpInside)
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(signUpButton)
         
@@ -104,5 +107,9 @@ final class SignInViewController: UIViewController, SignInViewProtocol {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
         presenter?.signIn(email: email, password: password)
+    }
+    
+    @objc func createAccount() {
+        coordinator?.signUp()
     }
 }

@@ -24,6 +24,12 @@
 		76DDB8A8285609CF0055F1A7 /* SignInWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8A7285609CF0055F1A7 /* SignInWireframe.swift */; };
 		76DDB8AA28560D830055F1A7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76DDB8A928560D830055F1A7 /* Localizable.strings */; };
 		76DDB8AC28560EA80055F1A7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8AB28560EA80055F1A7 /* String+Extension.swift */; };
+		76DDB8B1285616460055F1A7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8B0285616460055F1A7 /* SignUpViewController.swift */; };
+		76DDB8B3285616540055F1A7 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8B2285616540055F1A7 /* SignUpPresenter.swift */; };
+		76DDB8B52856165F0055F1A7 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8B42856165F0055F1A7 /* SignUpInteractor.swift */; };
+		76DDB8B7285616690055F1A7 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8B6285616690055F1A7 /* SignUpService.swift */; };
+		76DDB8B9285616740055F1A7 /* SignUpWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8B8285616740055F1A7 /* SignUpWireframe.swift */; };
+		76DDB8BB28561C670055F1A7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8BA28561C670055F1A7 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +67,12 @@
 		76DDB8A7285609CF0055F1A7 /* SignInWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWireframe.swift; sourceTree = "<group>"; };
 		76DDB8A928560D830055F1A7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		76DDB8AB28560EA80055F1A7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		76DDB8B0285616460055F1A7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		76DDB8B2285616540055F1A7 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		76DDB8B42856165F0055F1A7 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
+		76DDB8B6285616690055F1A7 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
+		76DDB8B8285616740055F1A7 /* SignUpWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWireframe.swift; sourceTree = "<group>"; };
+		76DDB8BA28561C670055F1A7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +127,7 @@
 		76DDB85D285605360055F1A7 /* SocialLite */ = {
 			isa = PBXGroup;
 			children = (
+				76DDB8AF285616350055F1A7 /* SignUp */,
 				76DDB8AD28560EAC0055F1A7 /* Extensions */,
 				76DDB89E2856097F0055F1A7 /* SignIn */,
 				76DDB899285607E40055F1A7 /* GoogleService-Info.plist */,
@@ -122,6 +135,7 @@
 				76DDB867285605380055F1A7 /* Assets.xcassets */,
 				76DDB86C285605380055F1A7 /* Info.plist */,
 				76DDB8A928560D830055F1A7 /* Localizable.strings */,
+				76DDB8BA28561C670055F1A7 /* Coordinator.swift */,
 			);
 			path = SocialLite;
 			sourceTree = "<group>";
@@ -161,6 +175,18 @@
 				76DDB8AB28560EA80055F1A7 /* String+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		76DDB8AF285616350055F1A7 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				76DDB8B0285616460055F1A7 /* SignUpViewController.swift */,
+				76DDB8B2285616540055F1A7 /* SignUpPresenter.swift */,
+				76DDB8B42856165F0055F1A7 /* SignUpInteractor.swift */,
+				76DDB8B6285616690055F1A7 /* SignUpService.swift */,
+				76DDB8B8285616740055F1A7 /* SignUpWireframe.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,13 +329,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76DDB8B9285616740055F1A7 /* SignUpWireframe.swift in Sources */,
+				76DDB8B3285616540055F1A7 /* SignUpPresenter.swift in Sources */,
+				76DDB8BB28561C670055F1A7 /* Coordinator.swift in Sources */,
 				76DDB8A2285609B00055F1A7 /* SignInPresenter.swift in Sources */,
 				76DDB8AC28560EA80055F1A7 /* String+Extension.swift in Sources */,
+				76DDB8B1285616460055F1A7 /* SignUpViewController.swift in Sources */,
 				76DDB8A8285609CF0055F1A7 /* SignInWireframe.swift in Sources */,
 				76DDB8A4285609BA0055F1A7 /* SignInInteractor.swift in Sources */,
 				76DDB8A6285609C50055F1A7 /* SignInService.swift in Sources */,
 				76DDB85F285605360055F1A7 /* AppDelegate.swift in Sources */,
+				76DDB8B52856165F0055F1A7 /* SignUpInteractor.swift in Sources */,
 				76DDB8A02856099F0055F1A7 /* SignInViewController.swift in Sources */,
+				76DDB8B7285616690055F1A7 /* SignUpService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
