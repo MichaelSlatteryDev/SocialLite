@@ -8,7 +8,7 @@
 import UIKit
 import NotificationBannerSwift
 
-typealias Coordinators = (SignUp)
+typealias Coordinators = (SignUp & Timeline)
 
 protocol Coordinator {
     var childCoordinators: [Coordinator] { get set }
@@ -17,7 +17,7 @@ protocol Coordinator {
     func start()
 }
 
-final class MainCoordinator: Coordinator, SignUp {
+final class MainCoordinator: Coordinator, SignUp, Timeline {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
@@ -27,15 +27,13 @@ final class MainCoordinator: Coordinator, SignUp {
     
     func start() {
         let vc = SignInViewController()
-        vc.coordinator = self
-        SignInWireframe.prepareSignInView(vc, service: SignInService())
+        SignInWireframe.prepareSignInView(vc, coordinator: self)
         navigationController.pushViewController(vc, animated: false)
     }
     
     func showSignUp() {
         let vc = SignUpViewController()
-        vc.coordinator = self
-        SignUpWireframe.prepareSignUpView(vc, service: SignUpService())
+        SignUpWireframe.prepareSignUpView(vc, coordinator: self)
         navigationController.pushViewController(vc, animated: false)
     }
     
@@ -43,5 +41,11 @@ final class MainCoordinator: Coordinator, SignUp {
         navigationController.popViewController(animated: false)
         let banner = NotificationBanner(title: "signUp.success.title".localize(), subtitle: "signUp.success.subtitle".localize(), style: .success)
         banner.show()
+    }
+    
+    func showTimeline() {
+        let vc = TimelineViewController()
+        TimelineWireframe.prepareTimelineView(vc, coordinator: self)
+        navigationController.pushViewController(vc, animated: false)
     }
 }

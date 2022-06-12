@@ -6,15 +6,21 @@
 //
 
 protocol SignInPresenterProtocol {
+    var coordinator: Coordinators? { get set }
+    
     func setView(_ view: SignInViewProtocol)
     func setInteractor(_ interactor: SignInInteractorProtocol)
     func signIn(email: String, password: String)
+    func createAccount()
+    func signInSuccess()
 }
 
 final class SignInPresenter: SignInPresenterProtocol {
     
     private var view: SignInViewProtocol?
     private var interactor: SignInInteractorProtocol?
+    
+    weak var coordinator: Coordinators?
     
     func setView(_ view: SignInViewProtocol) {
         self.view = view
@@ -26,5 +32,13 @@ final class SignInPresenter: SignInPresenterProtocol {
     
     func signIn(email: String, password: String) {
         interactor?.signIn(email: email, password: password)
+    }
+    
+    func createAccount() {
+        coordinator?.showSignUp()
+    }
+    
+    func signInSuccess() {
+        coordinator?.showTimeline()
     }
 }

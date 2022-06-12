@@ -8,9 +8,12 @@
 import Foundation
 
 class SignUpWireframe {
-    static func prepareSignUpView(_ view: SignUpViewProtocol, service: SignUpServiceProtocol) {
-        let presenter: SignUpPresenterProtocol = SignUpPresenter()
+    static func prepareSignUpView(_ view: SignUpViewProtocol, coordinator: Coordinators) {
+        var presenter: SignUpPresenterProtocol = SignUpPresenter()
         let interactor: SignUpInteractorProtocol = SignUpInteractor()
+        let service: SignUpServiceProtocol = SignUpService()
+        
+        presenter.coordinator = coordinator
         
         view.setPresenter(presenter)
         presenter.setView(view)

@@ -15,7 +15,6 @@ protocol SignUp: AnyObject {
 
 protocol SignUpViewProtocol {
     func setPresenter(_ presenter: SignUpPresenterProtocol)
-    func signUpSuccess()
     func signUpFail()
 }
 
@@ -23,10 +22,7 @@ final class SignUpViewController: UIViewController, SignUpViewProtocol {
     
     var presenter: SignUpPresenterProtocol?
     
-    weak var coordinator: Coordinators?
-    
     private let stackView = UIStackView()
-//    private let contentView = UIView()
     private let createAccountLabel = UILabel()
     private let nameTextField = UITextField()
     private let emailTextField = UITextField()
@@ -159,14 +155,6 @@ final class SignUpViewController: UIViewController, SignUpViewProtocol {
         }
         
         presenter?.signUp(email: email, password: password, displayName: displayName)
-    }
-    
-    func setErrorText() {
-        
-    }
-    
-    func signUpSuccess() {
-        coordinator?.showSignUpSuccessBanner()
     }
     
     func signUpFail() {

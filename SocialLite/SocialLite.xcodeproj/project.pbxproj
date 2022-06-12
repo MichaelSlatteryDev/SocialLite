@@ -32,6 +32,11 @@
 		76DDB8BB28561C670055F1A7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8BA28561C670055F1A7 /* Coordinator.swift */; };
 		76DDB8BE285625240055F1A7 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 76DDB8BD285625240055F1A7 /* NotificationBannerSwift */; };
 		76DDB8C228562C4A0055F1A7 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8C128562C4A0055F1A7 /* UITextField+Extension.swift */; };
+		76DDB8C8285637C20055F1A7 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8C7285637C20055F1A7 /* TimelineViewController.swift */; };
+		76DDB8CA285637CF0055F1A7 /* TimelinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8C9285637CF0055F1A7 /* TimelinePresenter.swift */; };
+		76DDB8CC285637DB0055F1A7 /* TimelineInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8CB285637DB0055F1A7 /* TimelineInteractor.swift */; };
+		76DDB8CE285637E20055F1A7 /* TimelineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8CD285637E20055F1A7 /* TimelineService.swift */; };
+		76DDB8D0285637EB0055F1A7 /* TimelineWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8CF285637EB0055F1A7 /* TimelineWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +81,11 @@
 		76DDB8B8285616740055F1A7 /* SignUpWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWireframe.swift; sourceTree = "<group>"; };
 		76DDB8BA28561C670055F1A7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		76DDB8C128562C4A0055F1A7 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		76DDB8C7285637C20055F1A7 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		76DDB8C9285637CF0055F1A7 /* TimelinePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelinePresenter.swift; sourceTree = "<group>"; };
+		76DDB8CB285637DB0055F1A7 /* TimelineInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineInteractor.swift; sourceTree = "<group>"; };
+		76DDB8CD285637E20055F1A7 /* TimelineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineService.swift; sourceTree = "<group>"; };
+		76DDB8CF285637EB0055F1A7 /* TimelineWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWireframe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +141,7 @@
 		76DDB85D285605360055F1A7 /* SocialLite */ = {
 			isa = PBXGroup;
 			children = (
+				76DDB8C6285637AC0055F1A7 /* Timeline */,
 				76DDB8AF285616350055F1A7 /* SignUp */,
 				76DDB8AD28560EAC0055F1A7 /* Extensions */,
 				76DDB89E2856097F0055F1A7 /* SignIn */,
@@ -192,6 +203,18 @@
 				76DDB8B8285616740055F1A7 /* SignUpWireframe.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		76DDB8C6285637AC0055F1A7 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				76DDB8C7285637C20055F1A7 /* TimelineViewController.swift */,
+				76DDB8C9285637CF0055F1A7 /* TimelinePresenter.swift */,
+				76DDB8CB285637DB0055F1A7 /* TimelineInteractor.swift */,
+				76DDB8CD285637E20055F1A7 /* TimelineService.swift */,
+				76DDB8CF285637EB0055F1A7 /* TimelineWireframe.swift */,
+			);
+			path = Timeline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +359,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76DDB8CE285637E20055F1A7 /* TimelineService.swift in Sources */,
 				76DDB8B9285616740055F1A7 /* SignUpWireframe.swift in Sources */,
+				76DDB8CA285637CF0055F1A7 /* TimelinePresenter.swift in Sources */,
+				76DDB8D0285637EB0055F1A7 /* TimelineWireframe.swift in Sources */,
 				76DDB8B3285616540055F1A7 /* SignUpPresenter.swift in Sources */,
 				76DDB8BB28561C670055F1A7 /* Coordinator.swift in Sources */,
 				76DDB8A2285609B00055F1A7 /* SignInPresenter.swift in Sources */,
@@ -348,8 +374,10 @@
 				76DDB8C228562C4A0055F1A7 /* UITextField+Extension.swift in Sources */,
 				76DDB85F285605360055F1A7 /* AppDelegate.swift in Sources */,
 				76DDB8B52856165F0055F1A7 /* SignUpInteractor.swift in Sources */,
+				76DDB8CC285637DB0055F1A7 /* TimelineInteractor.swift in Sources */,
 				76DDB8A02856099F0055F1A7 /* SignInViewController.swift in Sources */,
 				76DDB8B7285616690055F1A7 /* SignUpService.swift in Sources */,
+				76DDB8C8285637C20055F1A7 /* TimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

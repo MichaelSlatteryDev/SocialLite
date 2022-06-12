@@ -15,8 +15,6 @@ final class SignInViewController: UIViewController, SignInViewProtocol {
     
     var presenter: SignInPresenterProtocol?
     
-    weak var coordinator: Coordinators?
-    
     private let titleLabel = UILabel()
     private let containerView = UIView()
     private let emailTextField = UITextField()
@@ -66,6 +64,7 @@ final class SignInViewController: UIViewController, SignInViewProtocol {
         signInButton.setTitleColor(.white, for: .normal)
         signInButton.backgroundColor = .systemBlue
         signInButton.layer.cornerRadius = 4.0
+        signInButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(signInButton)
         
@@ -110,6 +109,6 @@ final class SignInViewController: UIViewController, SignInViewProtocol {
     }
     
     @objc func createAccount() {
-        coordinator?.showSignUp()
+        presenter?.createAccount()
     }
 }

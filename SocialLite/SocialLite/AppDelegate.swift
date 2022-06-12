@@ -23,7 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navController = UINavigationController()
         coordinator = MainCoordinator(navigationController: navController)
-        coordinator?.start()
+        
+        if let user = Auth.auth().currentUser {
+            coordinator?.showTimeline()
+        } else {
+            coordinator?.start()
+        }
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navController

@@ -28,9 +28,12 @@ final class SignInInteractor: SignInInteractorProtocol {
     
     func signIn(email: String, password: String) {
         service?.signIn(email: email, password: password) { [weak self] result in
+            guard let strongSelf = self else { return }
+            
             switch result {
             case let .success(userAccount):
                 print(userAccount)
+                strongSelf.presenter?.signInSuccess()
             case let .failure(error):
                 print(error)
             }

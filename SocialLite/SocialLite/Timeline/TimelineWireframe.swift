@@ -1,15 +1,17 @@
 //
-//  SignInWireframe.swift
+//  TimelineWireframe.swift
 //  SocialLite
 //
 //  Created by Michael Slattery on 12/06/2022.
 //
 
-class SignInWireframe {
-    static func prepareSignInView(_ view: SignInViewProtocol, coordinator: Coordinators) {
-        var presenter: SignInPresenterProtocol = SignInPresenter()
-        let interactor: SignInInteractorProtocol = SignInInteractor()
-        let service: SignInServiceProtocol = SignInService()
+import Foundation
+
+class TimelineWireframe {
+    static func prepareTimelineView(_ view: TimelineViewProtocol, coordinator: Coordinators) {
+        var presenter: TimelinePresenterProtocol = TimelinePresenter()
+        let interactor: TimelineInteractorProtocol = TimelineInteractor()
+        let service: TimelineServiceProtocol = TimelineService()
         
         presenter.coordinator = coordinator
         

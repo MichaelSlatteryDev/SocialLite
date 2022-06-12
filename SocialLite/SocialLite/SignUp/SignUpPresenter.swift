@@ -8,6 +8,8 @@
 import Foundation
 
 protocol SignUpPresenterProtocol {
+    var coordinator: Coordinators? { get set }
+    
     func setView(_ view: SignUpViewProtocol)
     func setInteractor(_ interactor: SignUpInteractorProtocol)
     func signUp(email: String, password: String, displayName: String)
@@ -19,6 +21,8 @@ final class SignUpPresenter: SignUpPresenterProtocol {
     
     private var view: SignUpViewProtocol?
     private var interactor: SignUpInteractorProtocol?
+    
+    weak var coordinator: Coordinators?
     
     func setView(_ view: SignUpViewProtocol) {
         self.view = view
@@ -33,7 +37,7 @@ final class SignUpPresenter: SignUpPresenterProtocol {
     }
     
     func signUpSuccess() {
-        view?.signUpSuccess()
+        coordinator?.showSignUpSuccessBanner()
     }
     
     func signUpFail() {
