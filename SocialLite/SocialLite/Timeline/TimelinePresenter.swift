@@ -12,6 +12,7 @@ protocol TimelinePresenterProtocol {
     
     func setView(_ view: TimelineViewProtocol)
     func setInteractor(_ interactor: TimelineInteractorProtocol)
+    func post(title: String, description: String, completion: @escaping (Post) -> ())
 }
 
 final class TimelinePresenter: TimelinePresenterProtocol {
@@ -27,5 +28,9 @@ final class TimelinePresenter: TimelinePresenterProtocol {
     
     func setInteractor(_ interactor: TimelineInteractorProtocol) {
         self.interactor = interactor
+    }
+    
+    func post(title: String, description: String, completion: @escaping (Post) -> ()) {
+        interactor?.post(title: title, description: description, completion: completion)
     }
 }

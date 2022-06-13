@@ -41,6 +41,7 @@
 		76DDB8D42856519E0055F1A7 /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8D32856519E0055F1A7 /* TimelineCell.swift */; };
 		76DDB8D6285654480055F1A7 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8D5285654480055F1A7 /* Double+Extension.swift */; };
 		76DDB8D9285660420055F1A7 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8D8285660420055F1A7 /* AddPostViewController.swift */; };
+		76DDB8DB2857B9560055F1A7 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8DA2857B9560055F1A7 /* Encodable+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		76DDB8D32856519E0055F1A7 /* TimelineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCell.swift; sourceTree = "<group>"; };
 		76DDB8D5285654480055F1A7 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		76DDB8D8285660420055F1A7 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		76DDB8DA2857B9560055F1A7 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				76DDB8AB28560EA80055F1A7 /* String+Extension.swift */,
 				76DDB8C128562C4A0055F1A7 /* UITextField+Extension.swift */,
 				76DDB8D5285654480055F1A7 /* Double+Extension.swift */,
+				76DDB8DA2857B9560055F1A7 /* Encodable+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				76DDB8B52856165F0055F1A7 /* SignUpInteractor.swift in Sources */,
 				76DDB8D42856519E0055F1A7 /* TimelineCell.swift in Sources */,
 				76DDB8D6285654480055F1A7 /* Double+Extension.swift in Sources */,
+				76DDB8DB2857B9560055F1A7 /* Encodable+Extension.swift in Sources */,
 				76DDB8CC285637DB0055F1A7 /* TimelineInteractor.swift in Sources */,
 				76DDB8A02856099F0055F1A7 /* SignInViewController.swift in Sources */,
 				76DDB8B7285616690055F1A7 /* SignUpService.swift in Sources */,

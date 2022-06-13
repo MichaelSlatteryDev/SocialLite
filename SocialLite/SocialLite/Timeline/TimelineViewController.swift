@@ -77,7 +77,22 @@ final class TimelineViewController: UIViewController, TimelineViewProtocol {
     }
     
     @objc func addPost() {
-        AddPostViewController.showModal(parentVC: self)
+        let addPostVC = AddPostViewController()
+        addPostVC.modalPresentationStyle = .overCurrentContext
+        addPostVC.modalTransitionStyle = .crossDissolve
+        
+        addPostVC.post = { [weak self] title, description in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.presenter?.post(title: title, description: description) { [weak self] post in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.posts.append(post)
+                strongSelf.tableView.reloadData()
+            }
+        }
+        
+        present(addPostVC, animated: true)
     }
 }
 

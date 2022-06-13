@@ -11,7 +11,7 @@ import FirebaseAuth
 
 protocol TimelineServiceProtocol {
     func setInteractor(_ interactor: TimelineInteractorProtocol)
-    func addPost(title: String, description: String, completion: @escaping () -> ())
+    func addPost(title: String, description: String, completion: @escaping (Post) -> ())
     func getPosts(completion: @escaping () -> ())
 }
 
@@ -30,7 +30,7 @@ final class TimelineService: TimelineServiceProtocol {
         self.interactor = interactor
     }
     
-    func addPost(title: String, description: String, completion: @escaping () -> ()) {
+    func addPost(title: String, description: String, completion: @escaping (Post) -> ()) {
         guard let autoId = ref.child("posts/").childByAutoId().key,
               let userId = Auth.auth().currentUser?.uid else {
             return
@@ -38,11 +38,10 @@ final class TimelineService: TimelineServiceProtocol {
         
         let post = Post(id: autoId, userId: userId, title: title, description: description, timestamp: Date().timeIntervalSince1970)
         
-        ref.child("posts/").setValue(post) { [weak self] error, ref in
-            guard let strongSelf = self else { return }
+        ref.child("posts/\(autoId)/").setValue(post.dictionary) {error, ref in
             
             if error == nil {
-                
+                completion(post)
             } else {
                 
             }

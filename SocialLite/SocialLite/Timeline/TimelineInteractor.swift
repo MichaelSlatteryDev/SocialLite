@@ -10,6 +10,7 @@ import Foundation
 protocol TimelineInteractorProtocol {
     func setPresenter(_ presenter: TimelinePresenterProtocol)
     func setService(_ interactor: TimelineServiceProtocol)
+    func post(title: String, description: String, completion: @escaping (Post) -> ())
 }
 
 final class TimelineInteractor: TimelineInteractorProtocol {
@@ -23,6 +24,10 @@ final class TimelineInteractor: TimelineInteractorProtocol {
     
     func setService(_ service: TimelineServiceProtocol) {
         self.service = service
+    }
+    
+    func post(title: String, description: String, completion: @escaping (Post) -> ()) {
+        service?.addPost(title: title, description: description, completion: completion)
     }
     
 }

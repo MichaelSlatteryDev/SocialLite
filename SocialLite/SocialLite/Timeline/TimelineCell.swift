@@ -11,6 +11,7 @@ final class TimelineCell: UITableViewCell {
     
     public static let reuseID = "TimelineCell"
     
+//    private let contentView = UIView()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let timestampLabel = UILabel()
@@ -23,7 +24,7 @@ final class TimelineCell: UITableViewCell {
         
         descriptionLabel.numberOfLines = 0
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(titleLabel)
+        self.contentView.addSubview(descriptionLabel)
         
         timestampLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(timestampLabel)
@@ -36,7 +37,6 @@ final class TimelineCell: UITableViewCell {
             timestampLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 8.0),
             timestampLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 8.0),
             timestampLabel.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
             descriptionLabel.leadingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 8.0),

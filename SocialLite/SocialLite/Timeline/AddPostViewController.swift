@@ -19,6 +19,8 @@ final class AddPostViewController: UIViewController {
     private var allowEditing = true
     private let maxCharacters = 140
     
+    var post: ((_ title: String, _ description: String) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,18 +29,11 @@ final class AddPostViewController: UIViewController {
         setUpSubViews()
     }
     
-    static func showModal(parentVC: UIViewController) {
-        let addPostVC = AddPostViewController()
-        addPostVC.modalPresentationStyle = .overCurrentContext
-        addPostVC.modalTransitionStyle = .crossDissolve
-        
-        parentVC.present(addPostVC, animated: true)
-    }
-    
     private func setUpSubViews() {
         modalView.layer.cornerRadius = 6.0
         modalView.layer.borderColor = UIColor.lightGray.cgColor
         modalView.layer.borderWidth = 1.2
+        modalView.backgroundColor = .white
         modalView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(modalView)
         
@@ -61,13 +56,14 @@ final class AddPostViewController: UIViewController {
         postButton.backgroundColor = .systemBlue
         postButton.layer.cornerRadius = 4.0
         postButton.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 10.0, bottom: 5.0, right: 10.0)
+        postButton.addTarget(self, action: #selector(postTapped), for: .touchUpInside)
         postButton.translatesAutoresizingMaskIntoConstraints = false
         modalView.addSubview(postButton)
         
         cancelButton.setTitle("addPost.cancel".localize(), for: .normal)
         cancelButton.setTitleColor(.systemBlue, for: .normal)
         cancelButton.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
-        cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         modalView.addSubview(cancelButton)
         
@@ -104,7 +100,16 @@ final class AddPostViewController: UIViewController {
         ])
     }
     
-    @objc func cancel() {
+    @objc func postTapped() {
+        guard let title = titleTextField.text, let description = descriptionTextView.text else {
+            return
+        }
+        
+        post?(title, description)
+        dismiss(animated: true)
+    }
+    
+    @objc func cancelTapped() {
         dismiss(animated: true)
     }
 }
