@@ -48,4 +48,8 @@ final class MainCoordinator: Coordinator, SignUp, Timeline {
         TimelineWireframe.prepareTimelineView(vc, coordinator: self)
         navigationController.pushViewController(vc, animated: false)
     }
+    
+    func showAddPostModal() {
+        
+    }
 }

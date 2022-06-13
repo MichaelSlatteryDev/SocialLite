@@ -13,6 +13,7 @@ protocol Timeline: AnyObject {
 
 protocol TimelineViewProtocol {
     func setPresenter(_ presenter: TimelinePresenterProtocol)
+    func addPost()
 }
 
 final class TimelineViewController: UIViewController, TimelineViewProtocol {
@@ -60,6 +61,7 @@ final class TimelineViewController: UIViewController, TimelineViewProtocol {
         addButton.contentVerticalAlignment = .fill
         addButton.contentHorizontalAlignment = .fill
         addButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        addButton.addTarget(self, action: #selector(addPost), for: .touchUpInside)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(addButton)
         
@@ -72,6 +74,10 @@ final class TimelineViewController: UIViewController, TimelineViewProtocol {
             self.view.trailingAnchor.constraint(equalTo: addButton.trailingAnchor, constant: 8.0),
             self.view.bottomAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 24.0),
         ])
+    }
+    
+    @objc func addPost() {
+        AddPostViewController.showModal(parentVC: self)
     }
 }
 

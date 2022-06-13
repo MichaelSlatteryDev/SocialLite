@@ -40,6 +40,7 @@
 		76DDB8D228564C2B0055F1A7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8D128564C2B0055F1A7 /* Post.swift */; };
 		76DDB8D42856519E0055F1A7 /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8D32856519E0055F1A7 /* TimelineCell.swift */; };
 		76DDB8D6285654480055F1A7 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8D5285654480055F1A7 /* Double+Extension.swift */; };
+		76DDB8D9285660420055F1A7 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB8D8285660420055F1A7 /* AddPostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		76DDB8D128564C2B0055F1A7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		76DDB8D32856519E0055F1A7 /* TimelineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCell.swift; sourceTree = "<group>"; };
 		76DDB8D5285654480055F1A7 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		76DDB8D8285660420055F1A7 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				76DDB8CD285637E20055F1A7 /* TimelineService.swift */,
 				76DDB8CF285637EB0055F1A7 /* TimelineWireframe.swift */,
 				76DDB8D32856519E0055F1A7 /* TimelineCell.swift */,
+				76DDB8D8285660420055F1A7 /* AddPostViewController.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				76DDB8A02856099F0055F1A7 /* SignInViewController.swift in Sources */,
 				76DDB8B7285616690055F1A7 /* SignUpService.swift in Sources */,
 				76DDB8C8285637C20055F1A7 /* TimelineViewController.swift in Sources */,
+				76DDB8D9285660420055F1A7 /* AddPostViewController.swift in Sources */,
 				76DDB8D228564C2B0055F1A7 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

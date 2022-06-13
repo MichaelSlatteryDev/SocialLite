@@ -26,3 +26,8 @@
 
 "signUp.invalidEmail.text" = "Please enter a valid email";
 "signUp.invalidPassword.text" = "Please enter a password with at least one uppercase, lowercase, number and special character";
+
+"addPost.title" = "Title";
+"addPost.body" = "What do you want to say?";
+"addPost.post" = "Post";
+"addPost.cancel" = "Cancel";
