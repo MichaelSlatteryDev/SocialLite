@@ -11,12 +11,16 @@ final class TimelineCell: UITableViewCell {
     
     public static let reuseID = "TimelineCell"
     
+    private let userNameLabel = UILabel()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let timestampLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        userNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.addSubview(userNameLabel)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(titleLabel)
@@ -29,13 +33,16 @@ final class TimelineCell: UITableViewCell {
         self.contentView.addSubview(timestampLabel)
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8.0),
-            titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8.0),
+            userNameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8.0),
+            userNameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8.0),
             
-            timestampLabel.topAnchor.constraint(equalTo: titleLabel.topAnchor),
-            timestampLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 8.0),
+            timestampLabel.topAnchor.constraint(equalTo: userNameLabel.topAnchor),
+            timestampLabel.leadingAnchor.constraint(equalTo: userNameLabel.trailingAnchor, constant: 8.0),
             self.contentView.trailingAnchor.constraint(equalTo: timestampLabel.trailingAnchor, constant: 8.0),
-            timestampLabel.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            timestampLabel.bottomAnchor.constraint(equalTo: userNameLabel.bottomAnchor),
+            
+            titleLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 8.0),
+            titleLabel.leadingAnchor.constraint(equalTo: userNameLabel.leadingAnchor),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
             descriptionLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8.0),
@@ -49,6 +56,7 @@ final class TimelineCell: UITableViewCell {
     }
     
     func setData(from post: Post) {
+        userNameLabel.text = post.userName
         titleLabel.text = post.title
         descriptionLabel.text = post.description
         timestampLabel.text = post.timestamp.timeSincePost()

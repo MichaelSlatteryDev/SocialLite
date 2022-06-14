@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol Timeline: AnyObject {
     func showTimeline()
@@ -121,5 +122,26 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        
+        if editingStyle == .delete  {
+            self.presenter?.delete(post: post) {
+                self.posts.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        let post = posts[indexPath.row]
+        
+        if Auth.auth().currentUser?.uid == post.userId {
+            return .delete
+        } else {
+            return .none
+        }
     }
 }

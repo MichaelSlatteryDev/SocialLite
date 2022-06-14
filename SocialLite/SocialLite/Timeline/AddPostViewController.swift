@@ -127,7 +127,13 @@ extension AddPostViewController: UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        textLimit(existingText: textView.text, newText: text, limit: maxCharacters)
+        let canEdit = textLimit(existingText: textView.text, newText: text, limit: maxCharacters)
+        
+        if !canEdit {
+            charactersLeftlabel.shake(0.01)
+        }
+        
+        return canEdit
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -135,6 +141,16 @@ extension AddPostViewController: UITextViewDelegate {
             textView.text = "addPost.body".localize()
             textView.textColor = UIColor.lightGray
         }
+    }
+    
+    func textPasteConfigurationSupporting(_ textPasteConfigurationSupporting: UITextPasteConfigurationSupporting, performPasteOf attributedString: NSAttributedString, to textRange: UITextRange) -> UITextRange {
+            if let textView = textPasteConfigurationSupporting as? UITextView {
+                let pasteBoard = UIPasteboard.general
+                if pasteBoard.hasStrings {
+                    textView.insertText(pasteBoard.string ?? "Some thing went wrong, please enter your text")
+                }
+            }
+            return textRange
     }
     
     private func textLimit(existingText: String,

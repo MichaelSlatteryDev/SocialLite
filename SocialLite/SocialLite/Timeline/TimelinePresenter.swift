@@ -14,6 +14,7 @@ protocol TimelinePresenterProtocol {
     func setInteractor(_ interactor: TimelineInteractorProtocol)
     func addPost(title: String, description: String, completion: @escaping (Post) -> ())
     func getPosts(completion: @escaping ([Post]) -> ())
+    func delete(post: Post, completion: @escaping () -> Void)
 }
 
 final class TimelinePresenter: TimelinePresenterProtocol {
@@ -37,5 +38,9 @@ final class TimelinePresenter: TimelinePresenterProtocol {
     
     func getPosts(completion: @escaping ([Post]) -> ()) {
         interactor?.getPosts(completion: completion)
+    }
+    
+    func delete(post: Post, completion: @escaping () -> Void) {
+        interactor?.delete(post: post, completion: completion)
     }
 }

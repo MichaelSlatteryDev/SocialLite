@@ -13,6 +13,7 @@ protocol TimelineServiceProtocol {
     func setInteractor(_ interactor: TimelineInteractorProtocol)
     func addPost(title: String, description: String, completion: @escaping (Post) -> ())
     func getPosts(completion: @escaping ([Post]) -> ())
+    func delete(post: Post, completion: @escaping () -> Void)
 }
 
 final class TimelineService: TimelineServiceProtocol {
@@ -32,11 +33,12 @@ final class TimelineService: TimelineServiceProtocol {
     
     func addPost(title: String, description: String, completion: @escaping (Post) -> ()) {
         guard let autoId = ref.child("posts/").childByAutoId().key,
-              let userId = Auth.auth().currentUser?.uid else {
+              let userId = Auth.auth().currentUser?.uid,
+              let userName = Auth.auth().currentUser?.displayName  else {
             return
         }
         
-        let post = Post(id: autoId, userId: userId, title: title, description: description, timestamp: Date().timeIntervalSince1970)
+        let post = Post(id: autoId, userId: userId, userName: userName, title: title, description: description, timestamp: Date().timeIntervalSince1970)
         
         ref.child("posts/\(autoId)/").setValue(post.dictionary) {error, ref in
             
@@ -50,7 +52,7 @@ final class TimelineService: TimelineServiceProtocol {
     
     func getPosts(completion: @escaping ([Post]) -> ()) {
         ref.child("posts/").getData { error, snapshot in
-            if error == nil, let value = snapshot?.value {
+            if error == nil, snapshot?.exists() == true, let value = snapshot?.value {
                 do {
                     let data = try JSONSerialization.data(withJSONObject: value)
                     let posts = try JSONDecoder().decode([String: Post].self, from: data)
@@ -62,6 +64,14 @@ final class TimelineService: TimelineServiceProtocol {
                 }
             } else {
                 
+            }
+        }
+    }
+    
+    func delete(post: Post, completion: @escaping () -> Void) {
+        ref.child("posts/\(post.id)").removeValue { error, ref in
+            if error == nil {
+                completion()
             }
         }
     }
