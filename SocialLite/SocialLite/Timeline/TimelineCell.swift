@@ -11,7 +11,6 @@ final class TimelineCell: UITableViewCell {
     
     public static let reuseID = "TimelineCell"
     
-//    private let contentView = UIView()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let timestampLabel = UILabel()
@@ -35,13 +34,13 @@ final class TimelineCell: UITableViewCell {
             
             timestampLabel.topAnchor.constraint(equalTo: titleLabel.topAnchor),
             timestampLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 8.0),
-            timestampLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 8.0),
+            self.contentView.trailingAnchor.constraint(equalTo: timestampLabel.trailingAnchor, constant: 8.0),
             timestampLabel.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
-            descriptionLabel.leadingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 8.0),
-            descriptionLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 8.0),
-            descriptionLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 8.0),
+            descriptionLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8.0),
+            self.contentView.trailingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor, constant: 8.0),
+            self.contentView.bottomAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8.0),
         ])
     }
     

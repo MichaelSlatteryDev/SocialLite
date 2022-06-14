@@ -14,6 +14,7 @@ protocol Timeline: AnyObject {
 protocol TimelineViewProtocol {
     func setPresenter(_ presenter: TimelinePresenterProtocol)
     func addPost()
+    func getPosts()
 }
 
 final class TimelineViewController: UIViewController, TimelineViewProtocol {
@@ -46,9 +47,9 @@ final class TimelineViewController: UIViewController, TimelineViewProtocol {
         
         if posts.isEmpty {
             
-        } else {
-            
         }
+        
+        getPosts()
     }
     
     private func setUpSubViews() {
@@ -84,15 +85,24 @@ final class TimelineViewController: UIViewController, TimelineViewProtocol {
         addPostVC.post = { [weak self] title, description in
             guard let strongSelf = self else { return }
             
-            strongSelf.presenter?.post(title: title, description: description) { [weak self] post in
+            strongSelf.presenter?.addPost(title: title, description: description) { [weak self] post in
                 guard let strongSelf = self else { return }
                 
-                strongSelf.posts.append(post)
+                strongSelf.posts.insert(post, at: 0)
                 strongSelf.tableView.reloadData()
             }
         }
         
         present(addPostVC, animated: true)
+    }
+    
+    func getPosts() {
+        presenter?.getPosts { [weak self] posts in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.posts = posts
+            strongSelf.tableView.reloadData()
+        }
     }
 }
 
@@ -107,5 +117,9 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setData(from: posts[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

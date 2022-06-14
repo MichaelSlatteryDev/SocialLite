@@ -31,3 +31,6 @@
 "addPost.body" = "What do you want to say?";
 "addPost.post" = "Post";
 "addPost.cancel" = "Cancel";
+
+"post.time.now" = "Now";
+"post.time.ago" = " ago";

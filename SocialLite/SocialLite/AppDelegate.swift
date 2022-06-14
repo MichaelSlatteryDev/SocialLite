@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        signOutOldUser()
         
         Auth.auth().useEmulator(withHost: "localhost", port: 9099)
         
@@ -36,7 +37,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
-
 }
 
+extension AppDelegate{
+    func signOutOldUser(){
+        if UserDefaults.standard.value(forKey: "isNewuser") == nil {
+            do {
+                UserDefaults.standard.set(true, forKey: "isNewuser")
+                try Auth.auth().signOut()
+            } catch(let error) {
+                print(error)
+            }
+        }
+    }
+}

@@ -12,7 +12,7 @@ import FirebaseAuth
 protocol TimelineServiceProtocol {
     func setInteractor(_ interactor: TimelineInteractorProtocol)
     func addPost(title: String, description: String, completion: @escaping (Post) -> ())
-    func getPosts(completion: @escaping () -> ())
+    func getPosts(completion: @escaping ([Post]) -> ())
 }
 
 final class TimelineService: TimelineServiceProtocol {
@@ -48,12 +48,18 @@ final class TimelineService: TimelineServiceProtocol {
         }
     }
     
-    func getPosts(completion: @escaping () -> ()) {
-        ref.child("posts/").getData { [weak self] error, snapshot in
-            guard let strongSelf = self else { return }
-            
-            if error == nil {
-                
+    func getPosts(completion: @escaping ([Post]) -> ()) {
+        ref.child("posts/").getData { error, snapshot in
+            if error == nil, let value = snapshot?.value {
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: value)
+                    let posts = try JSONDecoder().decode([String: Post].self, from: data)
+                    let p = posts.map { $0.value }.sorted(by: { $0.timestamp >= $1.timestamp })
+                    
+                    completion(p)
+                } catch (let error) {
+                    print(error)
+                }
             } else {
                 
             }
