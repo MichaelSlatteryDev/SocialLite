@@ -13,6 +13,7 @@
 		76217518285A0C7600945FE6 /* TimelineViewController+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76217517285A0C7600945FE6 /* TimelineViewController+View.swift */; };
 		76232627285A5F0F007058CF /* SignUpViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76232626285A5F0F007058CF /* SignUpViewControllerTests.swift */; };
 		76232629285A60F5007058CF /* SignUpMockPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76232628285A60F5007058CF /* SignUpMockPresenter.swift */; };
+		7623262B285A72C5007058CF /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7623262A285A72C5007058CF /* LoadingButton.swift */; };
 		76DDB85F285605360055F1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB85E285605360055F1A7 /* AppDelegate.swift */; };
 		76DDB868285605380055F1A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76DDB867285605380055F1A7 /* Assets.xcassets */; };
 		76DDB876285605380055F1A7 /* SocialLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB875285605380055F1A7 /* SocialLiteTests.swift */; };
@@ -74,6 +75,7 @@
 		76217517285A0C7600945FE6 /* TimelineViewController+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineViewController+View.swift"; sourceTree = "<group>"; };
 		76232626285A5F0F007058CF /* SignUpViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewControllerTests.swift; sourceTree = "<group>"; };
 		76232628285A60F5007058CF /* SignUpMockPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMockPresenter.swift; sourceTree = "<group>"; };
+		7623262A285A72C5007058CF /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		76DDB85B285605360055F1A7 /* SocialLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DDB85E285605360055F1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76DDB867285605380055F1A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				76DDB8A928560D830055F1A7 /* Localizable.strings */,
 				76DDB8BA28561C670055F1A7 /* Coordinator.swift */,
 				76DDB8D128564C2B0055F1A7 /* Post.swift */,
+				7623262A285A72C5007058CF /* LoadingButton.swift */,
 			);
 			path = SocialLite;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				76DDB8A4285609BA0055F1A7 /* SignInInteractor.swift in Sources */,
 				76DDB8A6285609C50055F1A7 /* SignInService.swift in Sources */,
 				76DDB8C228562C4A0055F1A7 /* UITextField+Extension.swift in Sources */,
+				7623262B285A72C5007058CF /* LoadingButton.swift in Sources */,
 				76DDB85F285605360055F1A7 /* AppDelegate.swift in Sources */,
 				76DDB8B52856165F0055F1A7 /* SignUpInteractor.swift in Sources */,
 				76DDB8D42856519E0055F1A7 /* TimelineCell.swift in Sources */,

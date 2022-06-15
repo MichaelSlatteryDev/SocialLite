@@ -23,7 +23,7 @@ final class SignInViewController: UIViewController, SignInViewProtocol {
     internal let containerView = UIView()
     internal let emailTextField = UITextField()
     internal let passwordTextField = UITextField()
-    internal let signInButton = UIButton()
+    internal let signInButton = LoadingButton()
     internal let signUpButton = UIButton()
     
     func setPresenter(_ presenter: SignInPresenterProtocol) {
@@ -42,6 +42,7 @@ final class SignInViewController: UIViewController, SignInViewProtocol {
     @objc func signIn() {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
+        signInButton.showLoading()
         presenter?.signIn(email: email, password: password)
     }
     

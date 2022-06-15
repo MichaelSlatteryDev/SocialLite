@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         signOutOldUser()
         
-        Auth.auth().useEmulator(withHost: "localhost", port: 9099)
-        
         let navController = UINavigationController()
         coordinator = MainCoordinator(navigationController: navController)
         

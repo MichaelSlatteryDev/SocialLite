@@ -9,6 +9,14 @@ import Foundation
 import FirebaseAuth
 import FirebaseDatabase
 
+enum URLProvider: String {
+    case firebaseRef = "https://sociallite-87616-default-rtdb.europe-west1.firebasedatabase.app"
+    
+    func url() -> String {
+        return self.rawValue
+    }
+}
+
 protocol SignUpServiceProtocol {
     func setInteractor(_ interactor: SignUpInteractorProtocol)
     func signUp(email: String, password: String, displayName: String, completion: @escaping (Result<UserAccount, Error>) -> ())
@@ -21,7 +29,7 @@ final class SignUpService: SignUpServiceProtocol {
     private  var ref: DatabaseReference!
     
     init() {
-        let url = try! NSString(contentsOfFile: "/Users/michaelslattery/Documents/SocialLite.txt", encoding: String.Encoding.utf8.rawValue) as String
+        let url = URLProvider.firebaseRef.url()
         ref = Database.database(url: url).reference()
     }
     

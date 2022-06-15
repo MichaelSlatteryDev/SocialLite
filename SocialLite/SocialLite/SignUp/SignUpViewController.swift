@@ -29,7 +29,7 @@ final class SignUpViewController: UIViewController, SignUpViewProtocol {
     internal let emailErrorLabel = UILabel()
     internal let passwordTextField = UITextField()
     internal let passwordErrorLabel = UILabel()
-    internal let createAccountButton = UIButton()
+    internal let createAccountButton = LoadingButton()
     
     internal var banner: NotificationBanner?
     
@@ -68,6 +68,9 @@ final class SignUpViewController: UIViewController, SignUpViewProtocol {
             
             return
         }
+        
+        navigationController?.navigationBar.isUserInteractionEnabled = false
+        createAccountButton.showLoading()
         
         presenter?.signUp(email: email, password: password, displayName: displayName)
     }

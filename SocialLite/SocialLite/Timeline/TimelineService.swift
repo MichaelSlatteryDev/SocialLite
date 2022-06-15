@@ -24,7 +24,7 @@ final class TimelineService: TimelineServiceProtocol {
     private  var ref: DatabaseReference!
     
     init() {
-        let url = try! NSString(contentsOfFile: "/Users/michaelslattery/Documents/SocialLite.txt", encoding: String.Encoding.utf8.rawValue) as String
+        let url = URLProvider.firebaseRef.url()
         ref = Database.database(url: url).reference()
     }
     
