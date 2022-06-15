@@ -31,6 +31,8 @@ final class SignUpViewController: UIViewController, SignUpViewProtocol {
     internal let passwordErrorLabel = UILabel()
     internal let createAccountButton = UIButton()
     
+    internal var banner: NotificationBanner?
+    
     override func viewDidLoad() {
         
         self.view.backgroundColor = .white
@@ -43,9 +45,11 @@ final class SignUpViewController: UIViewController, SignUpViewProtocol {
     }
     
     @objc func signUp() {
-        guard let email = emailTextField.text, let password = passwordTextField.text, let displayName = nameTextField.text else { return }
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        let displayName = nameTextField.text ?? ""
         
-        guard email.isValidEmail(), password.isValidPassword() else {
+        guard email.isValidEmail(), password.isValidPassword(), displayName.count > 0 else {
             if !email.isValidEmail() {
                 emailErrorLabel.text = "signUp.invalidEmail.text".localize()
                 emailErrorLabel.isHidden = false
@@ -69,7 +73,7 @@ final class SignUpViewController: UIViewController, SignUpViewProtocol {
     }
     
     func signUpFail() {
-        let banner = NotificationBanner(title: "signUp.fail.title".localize(), subtitle: "signUp.fail.subtitle".localize(), style: .success)
-        banner.show()
+        banner = NotificationBanner(title: "signUp.fail.title".localize(), subtitle: "signUp.fail.subtitle".localize(), style: .danger)
+        banner?.show()
     }
 }
