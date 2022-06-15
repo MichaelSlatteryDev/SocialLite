@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		76088A3828592A8900C99B3B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76088A3728592A8900C99B3B /* UIView+Extension.swift */; };
+		76217514285A0B3F00945FE6 /* SignUpViewController+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76217513285A0B3F00945FE6 /* SignUpViewController+View.swift */; };
+		76217516285A0C0900945FE6 /* SignInViewController+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76217515285A0C0900945FE6 /* SignInViewController+View.swift */; };
+		76217518285A0C7600945FE6 /* TimelineViewController+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76217517285A0C7600945FE6 /* TimelineViewController+View.swift */; };
 		76DDB85F285605360055F1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB85E285605360055F1A7 /* AppDelegate.swift */; };
 		76DDB868285605380055F1A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76DDB867285605380055F1A7 /* Assets.xcassets */; };
 		76DDB876285605380055F1A7 /* SocialLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDB875285605380055F1A7 /* SocialLiteTests.swift */; };
@@ -64,6 +67,9 @@
 
 /* Begin PBXFileReference section */
 		76088A3728592A8900C99B3B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		76217513285A0B3F00945FE6 /* SignUpViewController+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewController+View.swift"; sourceTree = "<group>"; };
+		76217515285A0C0900945FE6 /* SignInViewController+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInViewController+View.swift"; sourceTree = "<group>"; };
+		76217517285A0C7600945FE6 /* TimelineViewController+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineViewController+View.swift"; sourceTree = "<group>"; };
 		76DDB85B285605360055F1A7 /* SocialLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DDB85E285605360055F1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76DDB867285605380055F1A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,6 +199,7 @@
 				76DDB8A3285609BA0055F1A7 /* SignInInteractor.swift */,
 				76DDB8A5285609C50055F1A7 /* SignInService.swift */,
 				76DDB8A7285609CF0055F1A7 /* SignInWireframe.swift */,
+				76217515285A0C0900945FE6 /* SignInViewController+View.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -217,6 +224,7 @@
 				76DDB8B42856165F0055F1A7 /* SignUpInteractor.swift */,
 				76DDB8B6285616690055F1A7 /* SignUpService.swift */,
 				76DDB8B8285616740055F1A7 /* SignUpWireframe.swift */,
+				76217513285A0B3F00945FE6 /* SignUpViewController+View.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -231,6 +239,7 @@
 				76DDB8CF285637EB0055F1A7 /* TimelineWireframe.swift */,
 				76DDB8D32856519E0055F1A7 /* TimelineCell.swift */,
 				76DDB8D8285660420055F1A7 /* AddPostViewController.swift */,
+				76217517285A0C7600945FE6 /* TimelineViewController+View.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -382,9 +391,12 @@
 				76DDB8CA285637CF0055F1A7 /* TimelinePresenter.swift in Sources */,
 				76DDB8D0285637EB0055F1A7 /* TimelineWireframe.swift in Sources */,
 				76DDB8B3285616540055F1A7 /* SignUpPresenter.swift in Sources */,
+				76217518285A0C7600945FE6 /* TimelineViewController+View.swift in Sources */,
+				76217516285A0C0900945FE6 /* SignInViewController+View.swift in Sources */,
 				76DDB8BB28561C670055F1A7 /* Coordinator.swift in Sources */,
 				76DDB8A2285609B00055F1A7 /* SignInPresenter.swift in Sources */,
 				76DDB8AC28560EA80055F1A7 /* String+Extension.swift in Sources */,
+				76217514285A0B3F00945FE6 /* SignUpViewController+View.swift in Sources */,
 				76DDB8B1285616460055F1A7 /* SignUpViewController.swift in Sources */,
 				76DDB8A8285609CF0055F1A7 /* SignInWireframe.swift in Sources */,
 				76DDB8A4285609BA0055F1A7 /* SignInInteractor.swift in Sources */,

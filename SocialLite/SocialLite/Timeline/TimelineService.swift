@@ -14,6 +14,7 @@ protocol TimelineServiceProtocol {
     func addPost(title: String, description: String, completion: @escaping (Post) -> ())
     func getPosts(completion: @escaping ([Post]) -> ())
     func delete(post: Post, completion: @escaping () -> Void)
+    func signOut(completion: @escaping () -> Void)
 }
 
 final class TimelineService: TimelineServiceProtocol {
@@ -73,6 +74,15 @@ final class TimelineService: TimelineServiceProtocol {
             if error == nil {
                 completion()
             }
+        }
+    }
+    
+    func signOut(completion: @escaping () -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion()
+        } catch (let error) {
+            print(error)
         }
     }
 }

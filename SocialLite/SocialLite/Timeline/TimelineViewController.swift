@@ -16,14 +16,16 @@ protocol TimelineViewProtocol {
     func setPresenter(_ presenter: TimelinePresenterProtocol)
     func addPost()
     func getPosts()
+    func signOut()
 }
 
 final class TimelineViewController: UIViewController, TimelineViewProtocol {
     
     var presenter: TimelinePresenterProtocol?
     
-    private let tableView = UITableView()
-    private let addButton = UIButton()
+    internal let signOutButton = UIButton()
+    internal let tableView = UITableView()
+    internal let addButton = UIButton()
     
     private var posts: [Post] = []
     
@@ -35,7 +37,6 @@ final class TimelineViewController: UIViewController, TimelineViewProtocol {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        self.navigationItem.setHidesBackButton(true, animated: false)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,31 +52,6 @@ final class TimelineViewController: UIViewController, TimelineViewProtocol {
         }
         
         getPosts()
-    }
-    
-    private func setUpSubViews() {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(tableView)
-        
-        addButton.setImage(UIImage(named: "plus"), for: .normal)
-        addButton.backgroundColor = .systemBlue
-        addButton.layer.cornerRadius = 16.0
-        addButton.contentVerticalAlignment = .fill
-        addButton.contentHorizontalAlignment = .fill
-        addButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        addButton.addTarget(self, action: #selector(addPost), for: .touchUpInside)
-        addButton.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(addButton)
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            
-            self.view.trailingAnchor.constraint(equalTo: addButton.trailingAnchor, constant: 8.0),
-            self.view.bottomAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 24.0),
-        ])
     }
     
     @objc func addPost() {
@@ -104,6 +80,10 @@ final class TimelineViewController: UIViewController, TimelineViewProtocol {
             strongSelf.posts = posts
             strongSelf.tableView.reloadData()
         }
+    }
+    
+    @objc func signOut() {
+        presenter?.signOut()
     }
 }
 

@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let user = Auth.auth().currentUser {
             coordinator?.showTimeline()
         } else {
-            coordinator?.start()
+            coordinator?.showSignIn()
         }
         
         self.window = UIWindow(frame: UIScreen.main.bounds)

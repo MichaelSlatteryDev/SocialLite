@@ -15,6 +15,7 @@ protocol TimelinePresenterProtocol {
     func addPost(title: String, description: String, completion: @escaping (Post) -> ())
     func getPosts(completion: @escaping ([Post]) -> ())
     func delete(post: Post, completion: @escaping () -> Void)
+    func signOut()
 }
 
 final class TimelinePresenter: TimelinePresenterProtocol {
@@ -42,5 +43,11 @@ final class TimelinePresenter: TimelinePresenterProtocol {
     
     func delete(post: Post, completion: @escaping () -> Void) {
         interactor?.delete(post: post, completion: completion)
+    }
+    
+    func signOut() {
+        interactor?.signOut { [weak self] in
+            self?.coordinator?.showSignIn()
+        }
     }
 }

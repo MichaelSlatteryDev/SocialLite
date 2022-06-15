@@ -34,3 +34,5 @@
 
 "post.time.now" = "Now";
 "post.time.ago" = " ago";
+
+"signOut.button" = "Sign Out";

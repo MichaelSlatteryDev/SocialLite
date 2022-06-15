@@ -8,16 +8,15 @@
 import UIKit
 import NotificationBannerSwift
 
-typealias Coordinators = (SignUp & Timeline)
+typealias Coordinators = (SignIn & SignUp & Timeline)
 
 protocol Coordinator {
-    var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
 
-    func start()
+    func showSignIn()
 }
 
-final class MainCoordinator: Coordinator, SignUp, Timeline {
+final class MainCoordinator: Coordinator, Coordinators {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
@@ -25,7 +24,7 @@ final class MainCoordinator: Coordinator, SignUp, Timeline {
         self.navigationController = navigationController
     }
     
-    func start() {
+    func showSignIn() {
         let vc = SignInViewController()
         SignInWireframe.prepareSignInView(vc, coordinator: self)
         navigationController.pushViewController(vc, animated: false)
@@ -47,9 +46,5 @@ final class MainCoordinator: Coordinator, SignUp, Timeline {
         let vc = TimelineViewController()
         TimelineWireframe.prepareTimelineView(vc, coordinator: self)
         navigationController.pushViewController(vc, animated: false)
-    }
-    
-    func showAddPostModal() {
-        
     }
 }
