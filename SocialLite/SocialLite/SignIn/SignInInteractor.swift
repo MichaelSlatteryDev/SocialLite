@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 protocol SignInInteractorProtocol {
     func setPresenter(_ presenter: SignInPresenterProtocol)
     func setService(_ interactor: SignInServiceProtocol)
     func signIn(email: String, password: String)
+    func showError(type: AuthErrorCode.Code)
 }
 
 final class SignInInteractor: SignInInteractorProtocol {
@@ -38,5 +40,9 @@ final class SignInInteractor: SignInInteractorProtocol {
                 print(error)
             }
         }
+    }
+    
+    func showError(type: AuthErrorCode.Code) {
+        presenter?.showError(type: type)
     }
 }

@@ -12,6 +12,9 @@
 "signIn.signIn.button" = "Sign In";
 "signIn.signUp.button" = "Don't have an account? Sign Up";
 
+"signIn.email.errorText" = "This account does not exist";
+"signIn.email.passwordText" = "Incorrect Password";
+
 "signUp.title" = "Create Account";
 "signUp.displayName.placeholder" = "Display Name";
 "signUp.email.placeholder" = "Email";

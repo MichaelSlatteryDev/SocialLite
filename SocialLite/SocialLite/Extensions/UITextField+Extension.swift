@@ -8,12 +8,12 @@
 import UIKit
 
 extension UITextField {
-    func setErrorText(_ text: String) {
+    func setErrorText(_ text: String, size: CGFloat = 8.0) {
         self.text = ""
         self.attributedPlaceholder = NSAttributedString(
             string: text,
             attributes: [
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 8.0),
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: size),
                 NSAttributedString.Key.foregroundColor: UIColor.red
             ]
         )

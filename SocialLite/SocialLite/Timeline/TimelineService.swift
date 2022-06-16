@@ -64,7 +64,7 @@ final class TimelineService: TimelineServiceProtocol {
                     print(error)
                 }
             } else {
-                
+                print(error)
             }
         }
     }

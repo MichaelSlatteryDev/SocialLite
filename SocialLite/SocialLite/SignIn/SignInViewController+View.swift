@@ -22,6 +22,7 @@ extension SignInViewController {
         emailTextField.autocorrectionType = .no
         emailTextField.autocapitalizationType = .none
         emailTextField.spellCheckingType = .no
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(emailTextField)
         
@@ -31,6 +32,7 @@ extension SignInViewController {
         emailTextField.autocapitalizationType = .none
         emailTextField.spellCheckingType = .no
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(passwordTextField)
         
@@ -74,5 +76,15 @@ extension SignInViewController {
             self.view.centerXAnchor.constraint(equalTo: signUpButton.centerXAnchor),
             self.view.bottomAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 32.0),
         ])
+    }
+    
+    func enableSignIn() {
+        signInButton.isUserInteractionEnabled = true
+        signInButton.backgroundColor = .systemBlue
+    }
+    
+    func disableSignIn() {
+        signInButton.isUserInteractionEnabled = false
+        signInButton.backgroundColor = .lightGray
     }
 }

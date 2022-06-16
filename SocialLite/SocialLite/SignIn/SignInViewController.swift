@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol SignIn {
     func showSignIn()
@@ -13,6 +14,7 @@ protocol SignIn {
 
 protocol SignInViewProtocol {
     func setPresenter(_ presenter: SignInPresenterProtocol)
+    func showError(type: AuthErrorCode.Code)
 }
 
 final class SignInViewController: UIViewController, SignInViewProtocol {
@@ -48,5 +50,24 @@ final class SignInViewController: UIViewController, SignInViewProtocol {
     
     @objc func createAccount() {
         presenter?.createAccount()
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        enableSignIn()
+    }
+    
+    func showError(type: AuthErrorCode.Code) {
+        signInButton.hideLoading()
+        disableSignIn()
+        switch type {
+        case .invalidEmail:
+            emailTextField.text = ""
+            emailTextField.setErrorText("signIn.email.errorText".localize(), size: 16.0)
+        case .wrongPassword:
+            passwordTextField.text = ""
+            passwordTextField.setErrorText("signIn.email.passwordText".localize(), size: 16.0)
+        default:
+            print("Handle other errors")
+        }
     }
 }

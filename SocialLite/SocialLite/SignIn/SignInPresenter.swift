@@ -5,6 +5,9 @@
 //  Created by Michael Slattery on 12/06/2022.
 //
 
+import Foundation
+import FirebaseAuth
+
 protocol SignInPresenterProtocol {
     var coordinator: Coordinators? { get set }
     
@@ -13,6 +16,7 @@ protocol SignInPresenterProtocol {
     func signIn(email: String, password: String)
     func createAccount()
     func signInSuccess()
+    func showError(type: AuthErrorCode.Code)
 }
 
 final class SignInPresenter: SignInPresenterProtocol {
@@ -40,5 +44,9 @@ final class SignInPresenter: SignInPresenterProtocol {
     
     func signInSuccess() {
         coordinator?.showTimeline()
+    }
+    
+    func showError(type: AuthErrorCode.Code) {
+        view?.showError(type: type)
     }
 }

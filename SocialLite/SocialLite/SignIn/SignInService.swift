@@ -31,7 +31,7 @@ final class SignInService: SignInServiceProtocol {
             }
             
             if error != nil, let error = error as? NSError {
-                strongSelf.handleError(error: error, completion: completion)
+                strongSelf.handleError(error)
             } else if let user = authResult?.user, let name = user.displayName {
                 completion(.success(UserAccount(displayName: name, photoUrl: user.photoURL)))
             } else {
@@ -40,16 +40,9 @@ final class SignInService: SignInServiceProtocol {
         }
     }
     
-    private func handleError(error: NSError, completion: @escaping (Result<UserAccount, Error>) -> ()) {
+    private func handleError(_ error: NSError) {
         if let errorCode = AuthErrorCode.Code(rawValue: error.code) {
-            switch errorCode {
-            case .invalidEmail:
-                print("Handle invalid email")
-            case .wrongPassword:
-                print("Handle wrong password")
-            default:
-                print("Handle other errors")
-            }
+            interactor?.showError(type: errorCode)
         }
     }
 }
