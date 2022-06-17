@@ -67,14 +67,14 @@ extension SignUpViewController  {
         stackView.addSubview(createAccountButton)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 64.0),
-            stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             
-            createAccountLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 16.0),
+            createAccountLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 32.0),
             createAccountLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16.0),
-            createAccountLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 16.0),
+            stackView.trailingAnchor.constraint(equalTo: createAccountLabel.trailingAnchor, constant: 16.0),
             
             nameTextField.topAnchor.constraint(equalTo: createAccountLabel.bottomAnchor, constant: 16.0),
             nameTextField.leadingAnchor.constraint(equalTo: createAccountLabel.leadingAnchor),

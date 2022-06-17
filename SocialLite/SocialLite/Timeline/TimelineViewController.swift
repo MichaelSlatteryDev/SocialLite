@@ -15,7 +15,7 @@ protocol Timeline: AnyObject {
 protocol TimelineViewProtocol {
     func setPresenter(_ presenter: TimelinePresenterProtocol)
     func addPost()
-    func getPosts()
+    func getPosts(key: String?)
     func signOut()
 }
 
@@ -28,6 +28,9 @@ final class TimelineViewController: UIViewController, TimelineViewProtocol {
     internal let addButton = UIButton()
     
     private var posts: [Post] = []
+    private var postCount: Int = 0
+    private var page = 25
+    private let pagination = 25
     
     func setPresenter(_ presenter: TimelinePresenterProtocol) {
         self.presenter = presenter
@@ -65,6 +68,7 @@ final class TimelineViewController: UIViewController, TimelineViewProtocol {
             strongSelf.presenter?.addPost(title: title, description: description) { [weak self] post in
                 guard let strongSelf = self else { return }
                 
+                strongSelf.postCount += 1
                 strongSelf.posts.insert(post, at: 0)
                 strongSelf.tableView.reloadData()
             }
@@ -73,11 +77,12 @@ final class TimelineViewController: UIViewController, TimelineViewProtocol {
         present(addPostVC, animated: true)
     }
     
-    func getPosts() {
-        presenter?.getPosts { [weak self] posts in
+    func getPosts(key: String? = nil) {
+        presenter?.getPosts(page: page, key: key) { [weak self] postCount, posts in
             guard let strongSelf = self else { return }
-            
-            strongSelf.posts = posts
+
+            strongSelf.postCount = postCount
+            strongSelf.posts.append(contentsOf: posts)
             strongSelf.tableView.reloadData()
         }
     }
@@ -97,6 +102,11 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.setData(from: posts[indexPath.row])
         
+        if indexPath.row == posts.count - 1 && (page + pagination) < postCount {
+            page += pagination
+            getPosts(key: posts[indexPath.row].id)
+        }
+        
         return cell
     }
     
@@ -109,6 +119,7 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
         
         if editingStyle == .delete  {
             self.presenter?.delete(post: post) {
+                self.postCount -= 1
                 self.posts.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
             }

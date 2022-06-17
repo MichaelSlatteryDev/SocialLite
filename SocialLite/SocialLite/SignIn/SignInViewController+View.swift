@@ -23,6 +23,7 @@ extension SignInViewController {
         emailTextField.autocapitalizationType = .none
         emailTextField.spellCheckingType = .no
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        emailTextField.addDoneButtonOnKeyboard()
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(emailTextField)
         
@@ -33,6 +34,7 @@ extension SignInViewController {
         emailTextField.spellCheckingType = .no
         passwordTextField.isSecureTextEntry = true
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        passwordTextField.addDoneButtonOnKeyboard()
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(passwordTextField)
         
@@ -51,14 +53,14 @@ extension SignInViewController {
         self.view.addSubview(signUpButton)
         
         NSLayoutConstraint.activate([
-            self.view.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 32.0),
+            self.view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: titleLabel.topAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             
-            self.view.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            self.view.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            self.view.safeAreaLayoutGuide.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            self.view.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             containerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
-            containerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: UIScreen.main.bounds.width * 0.1),
-            self.view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: UIScreen.main.bounds.width * 0.1),
+            containerView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: UIScreen.main.bounds.width * 0.1),
+            self.view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: UIScreen.main.bounds.width * 0.1),
             
             containerView.topAnchor.constraint(equalTo: emailTextField.topAnchor, constant: 8.0),
             emailTextField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8.0),
