@@ -120,10 +120,10 @@ final class TimelineService: TimelineServiceProtocol {
     
     func delete(post: Post, completion: @escaping () -> Void) {
         ref.child(FirebaseEndpoints.postEndpoint(autoId: post.id).value())
-            .removeValue { error, ref in
+            .removeValue { [weak self] error, ref in
             if error == nil {
                 completion()
-                ref.child(FirebaseEndpoints.postCountEndpoint.value()).setValue(FirebaseDatabase.ServerValue.increment(-1))
+                self?.ref.child(FirebaseEndpoints.postCountEndpoint.value()).setValue(FirebaseDatabase.ServerValue.increment(-1))
             }
         }
     }
